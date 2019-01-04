@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,38 +33,53 @@
 
       <section class="images">
         <div class="grid-4">
-          <?php for($i = 1; $i<=3; $i++): ?>
-            <div class="image">
-              <a href="#" onclick="thisfunction(<?php echo $i ?>);"><img src="images/<?php echo $i.'.jpg'; ?>" id="<?php echo $i; ?>"></a>
+                      <div class="image">
+              <a href="#" onclick="thisfunction(1);"><img src="images/1.jpg" id="1"></a>
             </div>
-          <?php endfor; ?>
-        </div>
+                      <div class="image">
+              <a href="#" onclick="thisfunction(2);"><img src="images/2.jpg" id="2"></a>
+            </div>
+                      <div class="image">
+              <a href="#" onclick="thisfunction(3);"><img src="images/3.jpg" id="3"></a>
+            </div>
+                  </div>
         <div class="grid-2">
           <div>
             <a href="#" onclick="thisfunction(4);"><img src="images/4.jpg" id="4"></a>
           </div>
           <div >
             <div class="grid-2">
-              <?php for($i = 5; $i<=11; $i++): ?>
-                <div class="image">
-                  <a href="#" onclick="thisfunction(<?php echo $i; ?>);"><img src="images/<?php echo $i.'.jpg'; ?>" id="<?php echo $i; ?>"></a>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(5);"><img src="images/5.jpg" id="5"></a>
                 </div>
-              <?php endfor; ?>
-            </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(6);"><img src="images/6.jpg" id="6"></a>
+                </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(7);"><img src="images/7.jpg" id="7"></a>
+                </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(8);"><img src="images/8.jpg" id="8"></a>
+                </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(9);"><img src="images/9.jpg" id="9"></a>
+                </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(10);"><img src="images/10.jpg" id="10"></a>
+                </div>
+                              <div class="image">
+                  <a href="#" onclick="thisfunction(11);"><img src="images/11.jpg" id="11"></a>
+                </div>
+                          </div>
           </div>
         </div>
       </section>
 
       <!-- <section class="gallery">
-        <?php
-          // $imgs = array('imgs/1.jpg', 'imgs/2.jpg', 'imgs/3.jpeg', 'imgs/4.jpeg', 'imgs/5.jpeg', 'imgs/6.jpg');
-        ?>
-
+        
         <div class="grid-4">
-          <?php //foreach ($imgs as $img): ?>
-          <img src="<?php //echo $img; ?>" alt="">
-          <?php //endforeach; ?>
-        </div>
+                    <img src="" alt="">
+                  </div>
 
       </section> -->
   <script type="text/javascript">
