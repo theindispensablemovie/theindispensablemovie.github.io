@@ -43,26 +43,35 @@
       const sayHappyBday = () => {
         var nameInput = window.prompt("Enter Your Name:");
         if (nameInput != null){
-          var msg  = window.prompt("What is your message:");
+          var message  = window.prompt("What is your message:");
         }
 
         if (msg == null) return;
 
         var bdayMsg = {
           name: nameInput,
-          message: msg
+          msg: message
         }
 
-        console.log(JSON.stringify(bdayMsg));
-        
+        var myObj = null;
+
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = function() {
-          var myObj = JSON.parse(this.responseText);
-          console.og(myObj);
+          myObj = JSON.parse(this.responseText);
+          console.log(myObj);
+          myObj["2022"].push(bdayMsg);
+
         }
         xmlhttp.open("GET", "https://theindispensablemovie.github.io/messages.json");
         xmlhttp.send();
 
+        saveMessage(myObj);
+
+      }
+
+      const saveMessage = (Obj) => {
+          xmlhttp.open("GET", "https://theindispensablemovie.github.io/saveMessage.php?x="+JSON.parse(Obj));
+          xmlhttp.send();
       }
     </script>
   </body>
