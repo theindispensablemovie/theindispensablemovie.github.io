@@ -61,12 +61,11 @@
           console.log(myObj);
           myObj["2022"].push(bdayMsg);
 
-        saveMessage(myObj);
-
         }
         xmlhttp.open("GET", "https://theindispensablemovie.github.io/messages.json");
         xmlhttp.send();
 
+        saveMessage(myObj);
 
       }
 
