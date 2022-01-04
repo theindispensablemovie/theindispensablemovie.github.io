@@ -46,7 +46,7 @@
           var message  = window.prompt("What is your message:");
         }
 
-        if (msg == null) return;
+        if (message == null) return;
 
         var bdayMsg = {
           name: nameInput,
@@ -61,16 +61,18 @@
           console.log(myObj);
           myObj["2022"].push(bdayMsg);
 
+        saveMessage(myObj);
+
         }
         xmlhttp.open("GET", "https://theindispensablemovie.github.io/messages.json");
         xmlhttp.send();
 
-        saveMessage(myObj);
 
       }
 
       const saveMessage = (Obj) => {
-          xmlhttp.open("GET", "https://theindispensablemovie.github.io/saveMessage.php?x="+JSON.parse(Obj));
+          const xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("GET", "https://theindispensablemovie.github.io/saveMessage.php?x="+JSON.stringify(Obj));
           xmlhttp.send();
       }
     </script>
