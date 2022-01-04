@@ -38,6 +38,7 @@
       <a href="https://www.youtube.com/channel/UC4fW14rIEx8OBYSz5S-oQvQ" target="__blank"><i class="fab fa-youtube fa-3x"></i></a>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       document.body.style.backgroundImage = 'url("imgs/ajax-loader.gif")';
       const sayHappyBday = () => {
@@ -58,17 +59,21 @@
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onload = function() {
           myObj = JSON.parse(this.responseText);
-          console.log(myObj);
           myObj["2022"].push(bdayMsg);
+
+          var ActivexObj = new ActiveXObject(libraryname.classname[ location]);
+          let newfile = new ActiveXObject("Scripting.FileSystemObject");
+          let openFile = newfile.OpenTextFile("C:\\testfile.txt", 1, true);
+
+          var editFile = newfile.CreateTextFile("c:\\dev\theindispensablemovie\messages.json", true);
+              editFile.WriteLine("Add sample text to the file...");
+              editFile.Close();
+          //var myFile = new File([JSON.stringify(myObj)],"messages.json",{type:"text/json"});
+          //saveAs("https://theindispensablemovie.github.io/", myFile);
 
         }
         xmlhttp.open("GET", "https://theindispensablemovie.github.io/messages.json");
         xmlhttp.send();
-
-        <?php
-            file_put_contents('https://theindispensablemovie.github.io/messages.json', $obj);
-            echo file_get_contents('https://theindispensablemovie.github.io/messages.json');
-        ?>
 
       }
     </script>

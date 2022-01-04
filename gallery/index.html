@@ -32,70 +32,118 @@
         </ul>
       </nav>
 
-      <section class="images">
+      <div>
+        <button class="btn" onclick="displayYear(this, 'btn22')" id="btn19">2019</button>
+        <button class="btn btn-active" onclick="displayYear(this,'btn19')" id="btn22">2022</button>
+      </div>
+      <section id="2019" class="images">
         <div class="grid-4">
-                      <div class="image">
-              <a href="#" onclick="thisfunction(1);"><img src="images/1.jpg" id="1"></a>
-            </div>
-                      <div class="image">
-              <a href="#" onclick="thisfunction(2);"><img src="images/2.jpg" id="2"></a>
-            </div>
-                      <div class="image">
-              <a href="#" onclick="thisfunction(3);"><img src="images/3.jpg" id="3"></a>
-            </div>
-                  </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(1);"><img src="images/1.jpg" id="1"></a>
+          </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(2);"><img src="images/2.jpg" id="2"></a>
+          </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(3);"><img src="images/3.jpg" id="3"></a>
+          </div>
+        </div>
         <div class="grid-2">
           <div>
             <a href="#" onclick="thisfunction(4);"><img src="images/4.jpg" id="4"></a>
           </div>
           <div >
-            <div class="grid-2">
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(5);"><img src="images/5.jpg" id="5"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(6);"><img src="images/6.jpg" id="6"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(7);"><img src="images/7.jpg" id="7"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(8);"><img src="images/8.jpg" id="8"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(9);"><img src="images/9.jpg" id="9"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(10);"><img src="images/10.jpg" id="10"></a>
-                </div>
-                              <div class="image">
-                  <a href="#" onclick="thisfunction(11);"><img src="images/11.jpg" id="11"></a>
-                </div>
-             </div>
-		  
-		  
+          <div class="grid-2">
+            <div class="image">
+              <a href="#" onclick="thisfunction(5);"><img src="images/5.jpg" id="5"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(6);"><img src="images/6.jpg" id="6"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(7);"><img src="images/7.jpg" id="7"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(8);"><img src="images/8.jpg" id="8"></a>
+            </div>
+            <div class="image">
+             <a href="#" onclick="thisfunction(9);"><img src="images/9.jpg" id="9"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(10);"><img src="images/10.jpg" id="10"></a>
+            </div>
+            <div class="image">
+             <a href="#" onclick="thisfunction(11);"><img src="images/11.jpg" id="11"></a>
+            </div>
           </div>
-		
-		
         </div>
-	     
       </section>
 
-      <!-- <section class="gallery">
-        
+      <section id="2022" class="images">
         <div class="grid-4">
-                    <img src="" alt="">
-                  </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(18);"><img src="images/18.jpeg" id="18"></a>
+          </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(24);"><img src="images/24.jpeg" id="24"></a>
+          </div>
+          <div class="image">
+            <a href="#" onclick="thisfunction(20);"><img src="images/20.jpeg" id="20"></a>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <a href="#" onclick="thisfunction(19);"><img src="images/19.jpeg" id="19"></a>
+          </div>
+          <div >
+          <div class="grid-2">
+            <div class="image">
+              <a href="#" onclick="thisfunction(22);"><img src="images/22.jpeg" id="22"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(21);"><img src="images/21.jpeg" id="21"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(22);"><img src="images/22.jpeg" id="22"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(21);"><img src="images/21.jpeg" id="21"></a>
+            </div>
+            <div class="image">
+             <a href="#" onclick="thisfunction(23);"><img src="images/23.jpeg" id="23"></a>
+            </div>
+            <div class="image">
+              <a href="#" onclick="thisfunction(20);"><img src="images/20.jpeg" id="20"></a>
+            </div>
+            <!-- <div class="image">
+             <a href="#" onclick="thisfunction(22);"><img src="images/22.jpeg" id="22"></a>
+            </div> -->
+          </div>
+        </div>
+      </section>
 
-      </section> -->
   <script type="text/javascript">
 
-  var img_id;
+    var y19 = document.getElementById("2019");
+    var y22 = document.getElementById("2022");
+    y19.style.display = "none";
+
+    const displayYear = (el,id) => {
+      y19.style.display = "none";
+      y22.style.display = "none";
+      el.classList.add("btn-active");
+      document.getElementById(id).classList.remove("btn-active");
+      document.getElementById(el.innerHTML).style.display = "block";
+      
+    }
+
+    var img_id;
     function thisfunction(idd){
       console.log(idd);
       var modal = document.getElementById("modal");
       modal.style.display = "block";
-      document.getElementById("modal-body").innerHTML = "<img src='images/"+idd+".jpg'/>";
+      var ext = idd > 17 ? ".jpeg'/>" : ".jpg'/>";
+      document.getElementById("modal-body").innerHTML = "<img src='images/"+idd+ext;
     }
 
 
