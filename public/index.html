@@ -20,10 +20,10 @@
   <body>
       <nav>
         <ul>
-          <li> <a href="https://theindispensablemovie.github.io/" class="active">Home</a></li>
-          <li> <a href="https://theindispensablemovie.github.io/podcast">Podcast</a></li>
-		      <li> <a href="https://theindispensablemovie.github.io/messages">Messages</a></li>
-          <li> <a href="https://theindispensablemovie.github.io//gallery">Gallery</a></li>
+          <li> <a href="/" class="active">Home</a></li>
+          <li> <a href="/podcast">Podcast</a></li>
+		      <li> <a href="/messages">Messages</a></li>
+          <li> <a href="/gallery">Gallery</a></li>
         </ul>
       </nav>
 
@@ -43,37 +43,46 @@
       document.body.style.backgroundImage = 'url("imgs/ajax-loader.gif")';
       const sayHappyBday = () => {
         var nameInput = window.prompt("Enter Your Name:");
-        if (nameInput != null){
-          var message  = window.prompt("What is your message:");
-        }
+        var msg  = window.prompt("What is your message:");
 
-        if (message == null) return;
+        if (msg == null || msg == "") return;
 
+        var today = new Date();
+        var msgId = today.getFullYear()   + "" +
+                   (today.getMonth() + 1) + "" +
+                    today.getDate()    + "" +
+                    today.getHours()   + "" +
+                    today.getMinutes() + "" +
+                    today.getSeconds();
         var bdayMsg = {
+          id: msgId,
           name: nameInput,
-          msg: message
+          message: msg
         }
 
         var myObj = null;
 
-        const xmlhttp = new XMLHttpRequest();
-        xmlhttp.onload = function() {
-          myObj = JSON.parse(this.responseText);
-          myObj["2022"].push(bdayMsg);
+      //   const res = await fetch('/api/2022', {
+      //     method: 'POST',
+      //     headers: {
+      //         'Accept': 'application/json',
+      //         'Content-Type': 'application/json'
+      //     },
+      //     body: JSON.stringify(bdayMsg)
+      // })
 
-          var ActivexObj = new ActiveXObject(libraryname.classname[ location]);
-          let newfile = new ActiveXObject("Scripting.FileSystemObject");
-          let openFile = newfile.OpenTextFile("C:\\testfile.txt", 1, true);
+      //const data = await res.json()
 
-          var editFile = newfile.CreateTextFile("c:\\dev\theindispensablemovie\messages.json", true);
-              editFile.WriteLine("Add sample text to the file...");
-              editFile.Close();
-          //var myFile = new File([JSON.stringify(myObj)],"messages.json",{type:"text/json"});
-          //saveAs("https://theindispensablemovie.github.io/", myFile);
-
-        }
-        xmlhttp.open("GET", "https://theindispensablemovie.github.io/messages.json");
-        xmlhttp.send();
+        fetch("/api/2022", {
+          method: "POST",
+          headers:{'Accept':'application/json','Content-Type':'application/json'},
+          body: JSON.stringify(bdayMsg)
+        }).then((res) => {
+          alert("Thank You For Your Message!");
+          console.log(res);
+        }).catch(err => {
+          console.log(err);
+        });
 
       }
     </script>
