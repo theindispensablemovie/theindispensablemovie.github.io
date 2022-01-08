@@ -155,7 +155,7 @@
       </section> -->
   <script type="text/javascript">
 
-    fetch('/api/2022', {
+    fetch(`${process.env.PASTOR_PERCY_API_URL}/api/2022`, {
           method: 'GET',
           headers: {
               'Accept': 'application/json',
