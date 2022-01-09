@@ -23,6 +23,13 @@ body{
   color: #999;
   text-align: left;
   padding: 10px;
+  max-width: 350px;
+  
+}
+.flipbook{
+  position: absolute;
+  overflow-y:visible;
+
 }
 .btn{
   color: white;
